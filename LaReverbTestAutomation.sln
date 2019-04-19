@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAutomation", "LaReverbTestAutomation\TestAutomation.csproj", "{F382618C-DEBF-4888-AE7B-D0D69AE89646}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework", "TestFramework\TestFramework.csproj", "{73D5BE99-091F-4CBE-AEF3-2BC5ABA3619C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F382618C-DEBF-4888-AE7B-D0D69AE89646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F382618C-DEBF-4888-AE7B-D0D69AE89646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F382618C-DEBF-4888-AE7B-D0D69AE89646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F382618C-DEBF-4888-AE7B-D0D69AE89646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D5BE99-091F-4CBE-AEF3-2BC5ABA3619C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73D5BE99-091F-4CBE-AEF3-2BC5ABA3619C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73D5BE99-091F-4CBE-AEF3-2BC5ABA3619C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73D5BE99-091F-4CBE-AEF3-2BC5ABA3619C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {562F6E3D-49EF-4E68-9E1F-4EBD564C41FC}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,30 @@
+﻿{
+  "site": "https://lareverb.com",
+  "defaultProfile" :  "musician",
+  "userProfiles": [
+    {
+      "musician": {
+        "user": "clutchgomez",
+        "password": "plazabolivar1"
+      }
+    },
+    {
+      "band": {
+        "user": "clutchgomezband",
+        "password": "band2"
+      }
+    },
+    {
+      "service": {
+        "user": "clutchgomezser",
+        "password": "service3"
+      }
+    }
+  ],
+  "browsers": [
+    "chrome",
+    "phantom",
+    "firefox",
+    "ie"
+  ]
+}
