@@ -1,4 +1,6 @@
-﻿namespace TestFramework.Generators
+﻿using System.Text;
+
+namespace TestFramework.Generators
 {
     public static class PasswordGenerator
     {
@@ -6,12 +8,12 @@
 
         public static string GetRandomPassword()
         {
-            var password = "";
-            password = toggle ? "Password" : "New Password";
+            StringBuilder builder = new StringBuilder();
+            builder.Append(RandomGenerator.RandomString(4));
+            builder.Append(RandomGenerator.RandomNumber(1000, 9999));
+            builder.Append(RandomGenerator.RandomString(2));
 
-            toggle = !toggle;
-            LastGeneratedPassword = password;
-            return password;
+            return builder.ToString();
         }
 
         public static string LastGeneratedPassword { get; set; }

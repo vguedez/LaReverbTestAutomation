@@ -23,6 +23,8 @@ namespace TestAutomation
             Assert.IsTrue(Pages.Dashboard.MessagesLinkIsPresent());
             Assert.IsTrue(Pages.Dashboard.ContactsLinkIsPresent());
             Assert.IsTrue(Pages.Dashboard.SettingsLinkIsPresent());
+
+            Browser.Close();
         }
     }
 }

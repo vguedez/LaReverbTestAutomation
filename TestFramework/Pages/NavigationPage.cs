@@ -7,41 +7,42 @@ namespace TestFramework.Pages
     public class NavigationPage
     {
         [FindsBy(How = How.LinkText, Using = "Regístrate")]
-        private IWebElement registerLink { get; set; }
+        private IWebElement RegisterLink { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//a/strong[text()='Accede']")]
-        private IWebElement logInLink { get; set; }
+        private IWebElement LogInLink { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//a[@href='/site/logout']")]
-        private IWebElement logOutLink { get; set; }
+        private IWebElement LogOutLink { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//a[@href='/user/dashboard']")]
-        private IWebElement dashboardLink { get; set; }
+        private IWebElement DashboardLink { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//span[@id='alertMessage' and text()='Usuario o contraseña inválida']")]
-        private IWebElement invalidLoginMessage { get; set; }
+        private IWebElement InvalidLoginMessage { get; set; }
 
         public void GoToDashboard()
         {
-            dashboardLink.Click();
+            DashboardLink.Click();
         }
 
         public void DisplayLogIn()
         {
-            logInLink.Click();
+            Browser.WaitForElements(new List<IWebElement>() { LogInLink });
+            LogInLink.Click();
         }
 
         public void LogOut()
         {
-            if (logOutLink.Displayed)
-                logOutLink.Click();
+            if (LogOutLink.Displayed)
+                LogOutLink.Click();
         }
 
         public bool IsLoggedIn()
         {
             try
             {
-                return logOutLink.Displayed;
+                return LogOutLink.Displayed;
             }
             catch (NoSuchElementException)
             {
@@ -52,9 +53,9 @@ namespace TestFramework.Pages
 
         public bool LoggedInAsRegisteredUser()
         {
-            Browser.WaitForElements(new List<IWebElement>() { logOutLink });
+            Browser.WaitForElements(new List<IWebElement>() { LogOutLink });
 
-            if (!logOutLink.Displayed)
+            if (!LogOutLink.Displayed)
                 return false;
 
             return true;
@@ -62,7 +63,7 @@ namespace TestFramework.Pages
 
         public bool InvalidLoginAttempt()
         {
-            return invalidLoginMessage.Displayed;
+            return InvalidLoginMessage.Displayed;
         }
     }
 }

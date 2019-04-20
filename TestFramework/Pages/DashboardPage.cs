@@ -6,25 +6,25 @@ namespace TestFramework.Pages
     public class DashboardPage
     {
         [FindsBy(How = How.XPath, Using = "//a[@href='/musician/update']")]
-        private IWebElement profileLink { get; set; }
+        private IWebElement ProfileLink { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//a[@href='/gallery']")]
-        private IWebElement galleryLink { get; set; }
+        private IWebElement GalleryLink { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//a[@href='/videos']")]
-        private IWebElement videosLink { get; set; }
+        private IWebElement VideosLink { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//a[@href='/post/?bas=1']")]
-        private IWebElement adsLink { get; set; }
+        [FindsBy(How = How.XPath, Using = "//a[@href='/post']")]
+        private IWebElement AdsLink { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//a[@href='/messages']")]
-        private IWebElement messagesLink { get; set; }
+        private IWebElement MessagesLink { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//a[@href='/contacts']")]
-        private IWebElement contactsLink { get; set; }
+        private IWebElement ContactsLink { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//a[@href='/settings']")]
-        private IWebElement settingsLink { get; set; }
+        private IWebElement SettingsLink { get; set; }
 
         public void GoTo()
         {
@@ -33,42 +33,42 @@ namespace TestFramework.Pages
 
         public void GoToProfile()
         {
-            profileLink.Click();
+            ProfileLink.Click();
         }
 
         public bool ProfileLinkIsPresent()
         {
-            return profileLink.Displayed;
+            return ProfileLink.Displayed;
         }
 
         public bool GalleryLinkIsPresent()
         {
-            return galleryLink.Displayed;
+            return GalleryLink.Displayed;
         }
 
         public bool VideosLinkIsPresent()
         {
-            return videosLink.Displayed;
+            return VideosLink.Displayed;
         }
 
         public bool AdsLinkIsPresent()
         {
-            return adsLink.Displayed;
+            return AdsLink.Displayed;
         }
 
         public bool MessagesLinkIsPresent()
         {
-            return messagesLink.Displayed;
+            return MessagesLink.Displayed;
         }
 
         public bool ContactsLinkIsPresent()
         {
-            return contactsLink.Displayed;
+            return ContactsLink.Displayed;
         }
 
         public bool SettingsLinkIsPresent()
         {
-            return settingsLink.Displayed;
+            return SettingsLink.Displayed;
         }
     }
 }

@@ -25,12 +25,9 @@ namespace TestAutomation
         [TestMethod]
         public void CanLogin()
         {
-            Pages.Login.GoTo();
             Pages.Login.LogIn();
 
             Assert.IsTrue(Pages.Navigation.LoggedInAsRegisteredUser());
-
-            Pages.Navigation.LogOut();
         }
 
         [ClassCleanup()]

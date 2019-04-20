@@ -4,7 +4,7 @@
     {
         public static string GetRandomEmailAddress()
         {
-            return "random@lareverb.com";
+            return RandomGenerator.RandomString(6) + "@lareverb.com";
         }
     }
 }

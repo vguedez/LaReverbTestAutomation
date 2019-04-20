@@ -8,13 +8,16 @@ namespace TestFramework.Pages
     public class LoginPage
     {
         [FindsBy(How = How.Id, Using = "LoginForm_username")]
-        private IWebElement userName { get; set; }
+        private IWebElement UserName { get; set; }
 
         [FindsBy(How = How.Id, Using = "LoginForm_password")]
-        private IWebElement userPassword { get; set; }
+        private IWebElement UserPassword { get; set; }
 
         [FindsBy(How = How.Name, Using = "yt1")]
-        private IWebElement logInButton { get; set; }
+        private IWebElement LogInButton { get; set; }
+
+        [FindsBy(How = How.ClassName, Using = "close")]
+        private IWebElement CloseLogInDialogButton { get; set; }
 
         public void GoTo()
         {
@@ -23,20 +26,27 @@ namespace TestFramework.Pages
 
         public void LogIn()
         {
-            Browser.WaitForElements(new List<IWebElement>() { userName, userPassword, logInButton });
-            userName.SendKeys(Browser.getUser());
-            userPassword.SendKeys(Browser.getPassword());
+            Browser.WaitForElements(new List<IWebElement>() { UserName, UserPassword, LogInButton });
+            UserName.Clear();
+            UserPassword.Clear();
+            UserName.SendKeys(Browser.getUser());
+            UserPassword.SendKeys(Browser.getPassword());
 
-            logInButton.Click();
+            LogInButton.Click();
         }
 
         public void InvalidLogIn()
         {
-            Browser.WaitForElements(new List<IWebElement>() { userName, userPassword, logInButton });
-            userName.SendKeys(Browser.getUser());
-            userPassword.SendKeys(PasswordGenerator.GetRandomPassword());
+            Browser.WaitForElements(new List<IWebElement>() { UserName, UserPassword, LogInButton });
+            UserName.SendKeys(Browser.getUser());
+            UserPassword.SendKeys(PasswordGenerator.GetRandomPassword());
 
-            logInButton.Click();
+            LogInButton.Click();
+        }
+
+        public void CloseLoginDialog()
+        {
+            CloseLogInDialogButton.Click();
         }
     }
 }
