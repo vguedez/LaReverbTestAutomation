@@ -36,6 +36,11 @@ namespace TestFramework.Pages
             ProfileLink.Click();
         }
 
+        public void GoToAds()
+        {
+            AdsLink.Click();
+        }
+
         public bool ProfileLinkIsPresent()
         {
             return ProfileLink.Displayed;

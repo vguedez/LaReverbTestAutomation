@@ -4,7 +4,7 @@ using TestFramework.Pages;
 
 namespace TestAutomation
 {
-    [TestClass]
+    [TestClass()]
     public class Login
     {
         [ClassInitialize()]

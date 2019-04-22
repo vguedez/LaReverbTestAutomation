@@ -31,5 +31,10 @@ namespace TestFramework.Pages
         {
             get { return GetPage<MusicianProfilePage>(); }
         }
+
+        public static AdsPage Ads
+        {
+            get { return GetPage<AdsPage>(); }
+        }
     }
 }

@@ -4,11 +4,11 @@ using TestFramework.Pages;
 
 namespace TestAutomation
 {
-    [TestClass]
+    [TestClass()]
     public class Dashboard
     {
         [TestMethod]
-        public void CheckDashboardLinks()
+        public void TestDashboardLinks()
         {
             Browser.Initialize();
 

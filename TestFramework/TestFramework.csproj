@@ -74,6 +74,7 @@
     <Compile Include="Generators\PasswordGenerator.cs" />
     <Compile Include="Generators\RandomGenerator.cs" />
     <Compile Include="Generators\UserGenerator.cs" />
+    <Compile Include="Pages\AdsPage.cs" />
     <Compile Include="Pages\MusicianProfilePage.cs" />
     <Compile Include="Pages\NavigationPage.cs" />
     <Compile Include="Pages\Pages.cs" />
