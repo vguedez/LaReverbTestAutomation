@@ -25,7 +25,7 @@ namespace TestFramework
         public static string Title
         {
             get { return webDriver.Title; }
-        } 
+        }
 
         public static void GoTo(string url)
         {
@@ -42,7 +42,7 @@ namespace TestFramework
             webDriver.Close();
         }
 
-        public static void WaitForElements(List<IWebElement> elements)
+        public static void WaitForElements(IList<IWebElement> elements)
         {
             var wait = new WebDriverWait(Browser.Driver, TimeSpan.FromMinutes(1));
 
@@ -73,7 +73,7 @@ namespace TestFramework
                 var config = JObject.Parse(json);
                 baseUrl = (string)config["site"];
                 defaultProfile = (string)config["defaultProfile"];
-                profiles = new Dictionary<string, string[]>(); 
+                profiles = new Dictionary<string, string[]>();
 
                 var profileIndex = 0;
 
@@ -88,6 +88,12 @@ namespace TestFramework
                     profileIndex++;
                 }
             }
+        }
+
+        public static void JavaScriptClick(IWebElement WebElement)
+        {
+             IJavaScriptExecutor jse = (IJavaScriptExecutor) Driver;
+             jse.ExecuteScript("arguments[0].click();", WebElement); 
         }
     }
 }

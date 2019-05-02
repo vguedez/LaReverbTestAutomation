@@ -10,8 +10,7 @@ namespace TestFramework.Generators
     {
         public static int RandomNumber(int min, int max)
         {
-            Random random = new Random();
-            return random.Next(min, max);
+            return new Random().Next(min, max);
         }
 
         public static string RandomString(int size)

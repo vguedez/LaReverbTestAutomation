@@ -76,17 +76,59 @@ namespace TestAutomation
         [TestMethod]
         public void TestSelectInstruments()
         {
+            Pages.Dashboard.GoToProfile();
+            Pages.MusicianProfile.ShowInstrumentsDialogBox();
+            var InstrumentCheckboxes = Pages.MusicianProfile.GetInstrumentCheckboxes();
+            var InstrumentCheckboxLabels = Pages.MusicianProfile.GetInstrumentCheckboxLabels();
+
+            Assert.AreEqual(InstrumentCheckboxes.Count, InstrumentCheckboxLabels.Count);
+
+            Pages.MusicianProfile.UncheckAllInstrumentBoxes();
+            Pages.MusicianProfile.CheckRandomInstrumentBoxes();
+            var selectedInstrumentLabels = Pages.MusicianProfile.GetSelectedInstrumentLabels();
+            Pages.MusicianProfile.SetInstrumentSelection();
+            Pages.MusicianProfile.SubmitMusicianProfile();
+
+            Assert.IsTrue(Pages.MusicianProfile.MusicianProfileIsSaved());
+
+            Pages.Dashboard.GoToProfile();
+
+            foreach (string label in selectedInstrumentLabels)
+            {
+                Assert.IsTrue(Pages.MusicianProfile.IsMusicianLabelPresent(label));
+            }
         }
 
         [TestMethod]
         public void TestSelectGenres()
         {
+            Pages.Dashboard.GoToProfile();
+            Pages.MusicianProfile.ShowGenresDialogBox();
+            var GenreCheckboxes = Pages.MusicianProfile.GetGenreCheckboxes();
+            var GenreCheckboxLabels = Pages.MusicianProfile.GetGenreCheckboxLabels();
+
+            Assert.AreEqual(GenreCheckboxes.Count, GenreCheckboxLabels.Count);
+
+            Pages.MusicianProfile.UncheckAllGenreBoxes();
+            Pages.MusicianProfile.CheckRandomGenreBoxes();
+            var selectedGenreLabels = Pages.MusicianProfile.GetSelectedGenreLabels();
+            Pages.MusicianProfile.SetGenreSelection();
+            Pages.MusicianProfile.SubmitMusicianProfile();
+
+            Assert.IsTrue(Pages.MusicianProfile.MusicianProfileIsSaved());
+
+            Pages.Dashboard.GoToProfile();
+
+            foreach (string label in selectedGenreLabels)
+            {
+                Assert.IsTrue(Pages.MusicianProfile.IsMusicianLabelPresent(label));
+            }
         }
 
         [ClassCleanup()]
         public static void TearDown()
         {
-            Browser.Close();
+             Browser.Close();
         }
     }
 }

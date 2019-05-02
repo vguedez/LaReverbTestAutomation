@@ -81,11 +81,5 @@ namespace TestAutomation
 
             Assert.IsTrue(Pages.Ads.AdIsDeleted());
         }
-
-        [ClassCleanup()]
-        public static void TearDown()
-        {
-            Browser.Close();
-        }
     }
 }

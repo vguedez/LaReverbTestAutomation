@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+using System.Collections.Generic;
 
 namespace TestFramework.Pages
 {
@@ -29,6 +30,12 @@ namespace TestFramework.Pages
         [FindsBy(How = How.Id, Using = "showGenres")]
         private IWebElement ShowGenresButton { get; set; }
 
+        [FindsBy(How = How.Id, Using = "btnSaveInstruments")]
+        private IWebElement SaveInstrumentsButton { get; set; }
+
+        [FindsBy(How = How.Id, Using = "btnSaveGenre")]
+        private IWebElement SaveGenreButton { get; set; }
+        
         [FindsBy(How = How.Id, Using = "Musician_social_network")]
         private IWebElement MusicianSocialNetworkText { get; set; }
 
@@ -58,6 +65,18 @@ namespace TestFramework.Pages
 
         [FindsBy(How = How.XPath, Using = "//div[text()[contains(.,'Tu perfil ha sido almacenado')]]")]
         private IWebElement ProfileSavedMessage { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//input[@type='checkbox' and starts-with(@id,'instrument_')]")]
+        private IList<IWebElement> InstrumentCheckboxes { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//label[starts-with(@id,'lbl_instrument_')]")]
+        private IList<IWebElement> InstrumentCheckboxLabels { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//input[@type='checkbox' and starts-with(@id,'family_')]")]
+        private IList<IWebElement> GenreCheckboxes { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//label[starts-with(@id,'lbl_family_')]")]
+        private IList<IWebElement> GenreCheckboxLabels { get; set; }
 
         public void SetMusicianNameText(string text)
         {
@@ -141,9 +160,93 @@ namespace TestFramework.Pages
             return MusicianWebsiteText.GetAttribute("value");
         }
 
+        public IList<IWebElement> GetInstrumentCheckboxes()
+        {
+            return InstrumentCheckboxes;
+        }
+
+        public void UncheckAllInstrumentBoxes()
+        {
+            UncheckAllBoxes(InstrumentCheckboxes);
+        }
+
+        public void UncheckAllGenreBoxes()
+        {
+            UncheckAllBoxes(GenreCheckboxes);
+        }
+
+        public void UncheckAllBoxes(IList<IWebElement> Checkboxes)
+        {
+            Browser.WaitForElements(Checkboxes);
+            foreach (IWebElement checkbox in Checkboxes)
+                if (checkbox.Selected) checkbox.Click();
+        }
+
+        public void CheckRandomInstrumentBoxes()
+        {
+            CheckRandomBoxes(InstrumentCheckboxes);
+        }
+
+        public void CheckRandomGenreBoxes()
+        {
+            CheckRandomBoxes(GenreCheckboxes);
+        }
+
+        public void CheckRandomBoxes(IList<IWebElement> Checkboxes)
+        {
+            var random = new System.Random();
+            for (int index = 0; index < Checkboxes.Count; index++)
+                if (random.Next(2) == 0) Checkboxes[index].Click();
+        }
+
+        public List<string> GetSelectedInstrumentLabels()
+        {
+            return GetSelectedLabels(InstrumentCheckboxes, InstrumentCheckboxLabels);
+        }
+
+        public List<string> GetSelectedGenreLabels()
+        {
+            return GetSelectedLabels(GenreCheckboxes, GenreCheckboxLabels);
+        }
+
+        public List<string> GetSelectedLabels(IList<IWebElement> Checkboxes, IList<IWebElement> CheckboxLabels)
+        {
+            List<string> selectedLabels = new List<string> { };
+            for (int index = 0; index < Checkboxes.Count; index++)
+                if (Checkboxes[index].Selected) selectedLabels.Add(CheckboxLabels[index].Text);
+
+            return selectedLabels;
+        }
+
+        public void SetInstrumentSelection()
+        {
+            SaveInstrumentsButton.Click();
+        }
+
+        public IList<IWebElement> GetInstrumentCheckboxLabels()
+        {
+            return InstrumentCheckboxLabels;
+        }
+
+        public IList<IWebElement> GetGenreCheckboxes()
+        {
+            return GenreCheckboxes;
+        }
+
+        public void SetGenreSelection()
+        {
+            SaveGenreButton.Click();
+        }
+
+        public IList<IWebElement> GetGenreCheckboxLabels()
+        {
+            return GenreCheckboxLabels;
+        }
+
         public void SubmitMusicianProfile()
         {
-            SaveMusicianProfileButton.Click();
+            Browser.WaitForElements(new List<IWebElement>() { SaveMusicianProfileButton });
+            Browser.JavaScriptClick(SaveMusicianProfileButton);
         }
 
         public bool InvalidMusicianNameMessageIsDisplayed()
@@ -174,6 +277,22 @@ namespace TestFramework.Pages
         public bool MusicianProfileIsSaved()
         {
             return ProfileSavedMessage.Displayed;
+        }
+
+        public void ShowInstrumentsDialogBox()
+        {
+            ShowInstrumentsButton.Click();
+        }
+
+        public void ShowGenresDialogBox()
+        {
+            ShowGenresButton.Click();
+        }
+
+        public bool IsMusicianLabelPresent(string label)
+        {
+            var webElement = Browser.Driver.FindElement(By.XPath("//label[text()[contains(.,'" + label + "')]]"));
+            return webElement.Displayed ? true : false;
         }
     }
 }
