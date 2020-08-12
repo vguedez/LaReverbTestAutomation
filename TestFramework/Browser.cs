@@ -12,7 +12,7 @@ namespace TestFramework
     {
         private static string baseUrl;
         private static string defaultProfile;
-        private static IWebDriver webDriver = new ChromeDriver(@"Drivers");
+        private static readonly IWebDriver webDriver = new ChromeDriver(Environment.CurrentDirectory);
         private static Dictionary<string, string[]> profiles;
 
         public static void Initialize()
