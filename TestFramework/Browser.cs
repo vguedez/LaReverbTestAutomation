@@ -12,7 +12,7 @@ namespace TestFramework
     {
         private static string baseUrl;
         private static string defaultProfile;
-        private static IWebDriver webDriver = new ChromeDriver(@"C:\Users\Vicente\source\repos\LaReverbTestAutomation\TestFramework");
+        private static IWebDriver webDriver = new ChromeDriver(@"Drivers");
         private static Dictionary<string, string[]> profiles;
 
         public static void Initialize()
@@ -64,10 +64,6 @@ namespace TestFramework
 
         public static void LoadSettings()
         {
-            string directory = Path.GetDirectoryName(
-              System.Reflection.Assembly.GetExecutingAssembly().Location);
-
-            //using (StreamReader configFile = new StreamReader(directory + @"\Settings\Config.json"))
             using (StreamReader configFile = new StreamReader(@"Settings\Config.json"))
             {
                 string json = configFile.ReadToEnd();
