@@ -19,6 +19,9 @@ namespace TestFramework.Pages
         [FindsBy(How = How.ClassName, Using = "close")]
         private IWebElement CloseLogInDialogButton { get; set; }
 
+        [FindsBy(How = How.XPath, Using = "//a[@href='/site/logout']")]
+        private IWebElement LogOutLink { get; set; }
+
         public void GoTo()
         {
             Pages.Navigation.DisplayLogIn();
@@ -42,6 +45,15 @@ namespace TestFramework.Pages
             UserPassword.SendKeys(PasswordGenerator.GetRandomPassword());
 
             LogInButton.Click();
+        }
+
+        public bool IsSessionOpen()
+        {
+            return LogOutLink.Displayed;
+        }
+        public void LogOut()
+        {
+            if (IsSessionOpen()) LogOutLink.Click();
         }
 
         public void CloseLoginDialog()

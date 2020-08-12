@@ -14,20 +14,22 @@ namespace TestAutomation
         }
 
         [TestMethod]
+        public void CanLogin()
+        {
+            Pages.Login.GoTo();
+            Pages.Login.LogIn();
+
+            Assert.IsTrue(Pages.Navigation.LoggedInAsRegisteredUser());
+        }
+
+        [TestMethod]
         public void CantLoginWithInvalidCredentials()
         {
+            Pages.Login.LogOut();
             Pages.Login.GoTo();
             Pages.Login.InvalidLogIn();
 
             Assert.IsTrue(Pages.Navigation.InvalidLoginAttempt());
-        }
-
-        [TestMethod]
-        public void CanLogin()
-        {
-            Pages.Login.LogIn();
-
-            Assert.IsTrue(Pages.Navigation.LoggedInAsRegisteredUser());
         }
 
         [ClassCleanup()]
