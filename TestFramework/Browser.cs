@@ -67,7 +67,8 @@ namespace TestFramework
             string directory = Path.GetDirectoryName(
               System.Reflection.Assembly.GetExecutingAssembly().Location);
 
-            using (StreamReader configFile = new StreamReader(directory + @"\Settings\Config.json"))
+            //using (StreamReader configFile = new StreamReader(directory + @"\Settings\Config.json"))
+            using (StreamReader configFile = new StreamReader(@"\TestFramework\Settings\Config.json"))
             {
                 string json = configFile.ReadToEnd();
                 var config = JObject.Parse(json);
