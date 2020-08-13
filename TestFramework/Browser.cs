@@ -5,6 +5,8 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
+using System.Runtime.CompilerServices;
+using System.Reflection;
 
 namespace TestFramework
 {
@@ -12,11 +14,14 @@ namespace TestFramework
     {
         private static string baseUrl;
         private static string defaultProfile;
-        private static readonly IWebDriver webDriver = new ChromeDriver(Environment.CurrentDirectory);
+        private static IWebDriver webDriver;
         private static Dictionary<string, string[]> profiles;
 
         public static void Initialize()
         {
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddArguments("headless");
+            webDriver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), chromeOptions);
             LoadSettings();
             webDriver.Manage().Window.Maximize();
             GoTo("");
