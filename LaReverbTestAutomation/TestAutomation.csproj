@@ -50,6 +50,7 @@
     <Reference Include="WebDriver, Version=3.12.0.0, Culture=neutral, PublicKeyToken=null" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Directory.cs" />
     <Compile Include="MusicianProfile.cs" />
     <Compile Include="Dashboard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
