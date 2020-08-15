@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using System.Runtime.CompilerServices;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace TestFramework
 {
@@ -47,6 +48,14 @@ namespace TestFramework
             webDriver.Close();
             webDriver.Quit();
             webDriver.Dispose();
+
+            var chromeDriverProcesses = Process.GetProcessesByName("chromedriver");
+            foreach (var chromeDriverProcess in chromeDriverProcesses)
+                chromeDriverProcess.Kill();
+
+            var chromeAndChomiumProcesses = Process.GetProcessesByName("chrome");
+            foreach (var chromeAndChomiumProcess in chromeAndChomiumProcesses)
+                chromeAndChomiumProcess.Kill();
         }
 
         public static void WaitForElements(IList<IWebElement> elements)

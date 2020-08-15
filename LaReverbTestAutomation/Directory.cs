@@ -35,11 +35,6 @@ namespace TestAutomation
         public static void TearDown()
         {
             Browser.Close();
-            var chromeAndChomiumProcesses = Process.GetProcessesByName("chrome");
-            foreach (var chromeAndChomiumProcess in chromeAndChomiumProcesses)
-            {
-                chromeAndChomiumProcess.Kill();
-            }
         }
     }
 }
