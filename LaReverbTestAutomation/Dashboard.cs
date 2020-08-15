@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 using TestFramework;
 using TestFramework.Pages;
 
@@ -32,6 +33,11 @@ namespace TestAutomation
         public static void TearDown()
         {
             Browser.Close();
+            var chromeAndChomiumProcesses = Process.GetProcessesByName("chrome");
+            foreach (var chromeAndChomiumProcess in chromeAndChomiumProcesses)
+            {
+                chromeAndChomiumProcess.Kill();
+            }
         }
     }
 }

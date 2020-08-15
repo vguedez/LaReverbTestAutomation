@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TestFramework;
 using TestFramework.Pages;
 using TestFramework.Generators;
+using System.Diagnostics;
 
 namespace TestAutomation
 {
@@ -10,7 +11,7 @@ namespace TestAutomation
     public class Ads
     {
         [ClassInitialize()]
-        public void Initialize(TestContext context)
+        public static void Initialize(TestContext context)
         {
             Browser.Initialize();
             Pages.Login.GoTo();
@@ -86,6 +87,12 @@ namespace TestAutomation
         public static void TearDown()
         {
             Browser.Close();
+
+            var chromeAndChomiumProcesses = Process.GetProcessesByName("chrome");
+            foreach (var chromeAndChomiumProcess in chromeAndChomiumProcesses)
+            {
+                chromeAndChomiumProcess.Kill();
+            }
         }
     }
 }
