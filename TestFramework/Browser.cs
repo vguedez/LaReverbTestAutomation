@@ -20,7 +20,7 @@ namespace TestFramework
         public static void Initialize()
         {
             var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments("headless");
+            // chromeOptions.AddArguments("headless");
             webDriver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), chromeOptions);
             LoadSettings();
             webDriver.Manage().Window.Maximize();
@@ -45,6 +45,8 @@ namespace TestFramework
         public static void Close()
         {
             webDriver.Close();
+            webDriver.Quit();
+            webDriver.Dispose();
         }
 
         public static void WaitForElements(IList<IWebElement> elements)

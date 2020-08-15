@@ -30,23 +30,6 @@ namespace TestAutomation
 
         }
 
-        [TestMethod]
-        public void CanEditPublishedAd()
-        {
-
-        }
-
-        private void FillAndSaveAd()
-        {
-
-        }
-
-        [TestMethod]
-        public void CanDeletePublishedAd()
-        {
-
-        }
-
         [ClassCleanup()]
         public static void TearDown()
         {

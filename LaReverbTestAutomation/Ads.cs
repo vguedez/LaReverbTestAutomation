@@ -10,7 +10,7 @@ namespace TestAutomation
     public class Ads
     {
         [ClassInitialize()]
-        public static void Initialize(TestContext context)
+        public void Initialize(TestContext context)
         {
             Browser.Initialize();
             Pages.Login.GoTo();
