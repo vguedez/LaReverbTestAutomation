@@ -70,6 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\DirectoryPage.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="Browser.cs" />
     <Compile Include="Generators\EmailAddressGenerator.cs" />

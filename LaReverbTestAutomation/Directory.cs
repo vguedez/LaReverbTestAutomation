@@ -1,9 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 using TestFramework;
 using TestFramework.Pages;
-using TestFramework.Generators;
-using System.Diagnostics;
 
 namespace TestAutomation
 {
@@ -20,13 +17,31 @@ namespace TestAutomation
         }
 
         [TestMethod]
-        public void TestLeftSideMenu()
+        public void TestMusicProfileFilterLeftSideMenu()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestLocationFilterLeftSideMenu()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGenreFilterLeftSideMenu()
         {
 
         }
 
         [TestMethod]
         public void TestDirectoryCount()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestAdsCount()
         {
 
         }

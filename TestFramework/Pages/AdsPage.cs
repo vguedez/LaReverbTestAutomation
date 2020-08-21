@@ -91,7 +91,7 @@ namespace TestFramework.Pages
             AdsListCheckboxes[0].Click();
         }
 
-        public void DeleteSelectedPosts()
+        public void DeleteSelectedAd()
         {
             DeleteSelectedAdsButton.Click();
         }
