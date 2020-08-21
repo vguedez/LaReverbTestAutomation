@@ -59,7 +59,7 @@ namespace LaReverbTestAutomation
         [Then(@"the ad should dissapear from the ads admin")]
         public void ThenTheAdShouldDissapearFromTheAdsAdmin()
         {
-            Pages.Ads.ConfirmDeleteSelectedPosts();
+            Pages.Ads.ConfirmDeleteSelectedAds();
         }
 
         private void PublishNewAd()

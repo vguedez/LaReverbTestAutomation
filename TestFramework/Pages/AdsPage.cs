@@ -96,7 +96,7 @@ namespace TestFramework.Pages
             DeleteSelectedAdsButton.Click();
         }
 
-        public void ConfirmDeleteSelectedPosts()
+        public void ConfirmDeleteSelectedAds()
         {
             Browser.WaitForElements(new List<IWebElement>() { ConfirmDeleteAdButton });
             ConfirmDeleteAdButton.Click();

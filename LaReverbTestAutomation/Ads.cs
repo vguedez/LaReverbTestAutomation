@@ -76,8 +76,8 @@ namespace TestAutomation
             CanPublishNewAd();
             Pages.Dashboard.GoToAds();
             Pages.Ads.SelectFirstAd();
-            Pages.Ads.DeleteSelectedPosts();
-            Pages.Ads.ConfirmDeleteSelectedPosts();
+            Pages.Ads.DeleteSelectedAd();
+            Pages.Ads.ConfirmDeleteSelectedAds();
 
             Assert.IsTrue(Pages.Ads.AdIsDeleted());
         }
