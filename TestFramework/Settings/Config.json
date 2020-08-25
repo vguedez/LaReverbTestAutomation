@@ -1,23 +1,23 @@
 ﻿{
-  "site": "https://lareverb.com",
+  "site": "http://blackmamba",
   "defaultProfile" :  "musician",
   "userProfiles": [
     {
       "musician": {
         "user": "voodoo",
-        "password": "plazabolivar1"
+        "password": ""
       }
     },
     {
       "band": {
         "user": "clutchgomezband",
-        "password": "band2"
+        "password": ""
       }
     },
     {
       "service": {
         "user": "clutchgomezser",
-        "password": "service3"
+        "password": ""
       }
     }
   ],
